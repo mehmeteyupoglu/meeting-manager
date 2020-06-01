@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Step1, Step2, Step3} from "../../components"
 import { Button } from "reactstrap"
+import {StyledMain} from "./styles"
 
 class AddParticipant extends Component {
     constructor(props) {
@@ -66,23 +67,31 @@ class AddParticipant extends Component {
 
     render() {
         
-        return (  
-            <div>
-                {
-                    this.state.step === 1 || this.state.step === 2 ? <h1>Registration Types & Fees</h1> : null  
-                }
-                
-                {this.showStep()}
-                <div className="nextPrev">
-                        <Button 
-                        color="secondary" 
-                        onClick={this.previous}
-                        >
-                        Previous
-                        </Button>{' '}
-                        <Button color="success" onClick={this.next}>Next Step</Button>{' '}
+        return ( 
+            
+                <div>
+                    {
+                        
+                        this.state.step === 1 
+                        || this.state.step === 2 
+                        ? <StyledMain>
+                        <h1>Registration Types & Fees</h1>
+                        </StyledMain> 
+                        : null  
+                        
+                    }
+                    
+                    {this.showStep()}
+                    <div className="nextPrev">
+                            <Button 
+                            color="secondary" 
+                            onClick={this.previous}
+                            >
+                            Previous
+                            </Button>{' '}
+                            <Button color="success" onClick={this.next} disabled={this.state.step > 3}>Next Step</Button>{' '}
+                    </div> 
                 </div> 
-            </div>  
             
         );
     }

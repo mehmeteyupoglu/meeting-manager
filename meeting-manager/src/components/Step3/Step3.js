@@ -3,8 +3,8 @@ import React from 'react';
 const Step3 = () => {
     return (
         <div>
-            <h1>Workshop</h1>
-            <h2>Deep Dive with Vue3</h2>
+            <h2>Workshop</h2>
+            <h3>Deep Dive with Vue3</h3>
             <p>$</p>
             <button>+</button>
         </div>

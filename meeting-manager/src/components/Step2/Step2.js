@@ -9,9 +9,12 @@ const Step2 = () => {
         <div>
         <Formik
         initialValues={{
-            name: "", 
+            firstName: "", 
             lastName: "", 
             email: ""
+        }}
+        onSubmit={(values) => {
+            console.log(values)
         }}
         >
         {({
@@ -23,18 +26,42 @@ const Step2 = () => {
         handleSubmit,
         isSubmitting,
       }) => (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <FormGroup>
                 <Label for="firstName">First Name</Label>
-                <Input type="firstName" name="firstName" id="firstName" placeholder="First Name" />
+                <Input 
+                type="firstName" 
+                name="firstName" 
+                id="firstName" 
+                placeholder="First Name" 
+                onChange={handleChange}
+                value={values.firstName}    
+                />
+
             </FormGroup>
             <FormGroup>
                 <Label for="lastName">Last Name</Label>
-                <Input type="lastName" name="lastName" id="lastName" placeholder="Last Name" />
+                <Input 
+                type="lastName" 
+                name="lastName" 
+                id="lastName" 
+                placeholder="Last Name" 
+                onChange={handleChange}
+                value={values.lastName}    
+                />
+
             </FormGroup>
             <FormGroup>
                 <Label for="exampleEmail">Email</Label>
-                <Input type="email" name="email" id="exampleEmail" placeholder="with a placeholder" />
+                <Input 
+                type="email" 
+                name="email" 
+                id="exampleEmail" 
+                placeholder="with a placeholder" 
+                onChange={handleChange}
+                value={values.email}    
+                />
+
             </FormGroup>
         </Form>
       )}       

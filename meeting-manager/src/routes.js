@@ -1,4 +1,4 @@
-import {Homepage} from "./containers"
+import {Homepage, AddParticipant} from "./containers"
 
 const routes = [
     {
@@ -7,6 +7,13 @@ const routes = [
         exact: true, 
         component: Homepage, 
     }, 
+    {
+        title: "Add Participant", 
+        path: "/add-participant",
+        exact: false, 
+        component: AddParticipant
+    },
+    
 ]
 
 export default routes

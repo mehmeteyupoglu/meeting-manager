@@ -1,2 +1,3 @@
 import Homepage from "./Homepage"
-export {Homepage}
+import AddParticipant from "./AddParticipant"
+export {Homepage, AddParticipant}

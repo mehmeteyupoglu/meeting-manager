@@ -2,10 +2,14 @@ import Styled from "styled-components"
 export const StyledInput = Styled.div`
 
 .names {
-     
-    display: flex; 
-    justify-content: space-evenly; 
-    width: 250px; 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
+
+input[type=text] {
+    width: 300px; 
+}
+
 
 `

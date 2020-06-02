@@ -29,30 +29,34 @@ const Step2 = () => {
       }) => (
         <Form onSubmit={handleSubmit}>
             <StyledInput>
-                <FormGroup className="names" >
+                <div className="names">
+
+                
+                <FormGroup  >
                     <Label for="firstName">First Name</Label>
                     <Input 
-                    type="firstName" 
+                    type="text" 
                     name="firstName" 
                     id="firstName" 
-                    placeholder="First Name" 
+                    placeholder="" 
                     onChange={handleChange}
                     value={values.firstName}    
                     />
 
                 </FormGroup>
-                <FormGroup className="names">
+                <FormGroup >
                     <Label  for="lastName">Last Name</Label>
                     <Input 
-                    type="lastName" 
+                    type="text" 
                     name="lastName" 
                     id="lastName" 
-                    placeholder="Last Name" 
+                    placeholder=""
                     onChange={handleChange}
                     value={values.lastName}    
                     />
 
                 </FormGroup>
+                </div>
             </StyledInput>
             <FormGroup>
                 <Label for="exampleEmail">Email</Label>
@@ -60,7 +64,7 @@ const Step2 = () => {
                 type="email" 
                 name="email" 
                 id="exampleEmail" 
-                placeholder="with a placeholder" 
+                placeholder="" 
                 onChange={handleChange}
                 value={values.email}    
                 />

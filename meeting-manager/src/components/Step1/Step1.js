@@ -1,15 +1,18 @@
 import React from 'react';
-import { Alert, FormGroup, Label, Input } from 'reactstrap';
+import { FormGroup, Label, Input } from 'reactstrap';
+import { StyledAlert } from "./styles.js"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
 const Step1 = (props) => {
     const {radio} = props
     const {changeRadio} = props
     return (
         <div>
-                    <Alert color="primary">
+                <StyledAlert>
                         <FormGroup check>
-                        <Label check>
-                            <Input type="radio" 
+                        <Label >
+                            <Input type="checkbox" 
                             name="student" 
                             value="student" 
                             onClick={changeRadio}  
@@ -17,15 +20,21 @@ const Step1 = (props) => {
                             />{' '}
                             Student
                             
-                            <p>45$</p>
+                            <div className="right-side">
+                                <p>$ 35.00</p>
+                                <button>
+                                    <FontAwesomeIcon icon={faEdit} />
+                                </button>
+                            </div>
 
                         </Label>
                         </FormGroup>
-                    </Alert>
-                    <Alert color="primary">
+                        </StyledAlert>
+                        <StyledAlert>
+                    
                         <FormGroup check>
-                        <Label check>
-                            <Input type="radio" 
+                        <Label >
+                            <Input type="checkbox" 
                             name="regular" 
                             value="regular" 
                             onClick={changeRadio} 
@@ -33,12 +42,18 @@ const Step1 = (props) => {
                             />{' '}
                             Regular
                             
-                            <p>35$</p>
+                            <div className="right-side">
+                                <p>$ 35.00</p>
+                                <button>
+                                        <FontAwesomeIcon icon={faEdit} />
+                                </button>
+                            </div>
+                            
 
                         </Label>
                         </FormGroup>
-                    </Alert>
-                    <hr className="my-2" />
+                    </StyledAlert>
+                    
                      
         </div>
     );

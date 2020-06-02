@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import {Step1, Step2, Step3} from "../../components"
 import { Button } from "reactstrap"
-import {StyledMain} from "./styles"
+import {StyledMain, StyledButtons} from "./styles"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faIdCard, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
 
 class AddParticipant extends Component {
     constructor(props) {
@@ -75,22 +77,40 @@ class AddParticipant extends Component {
                         this.state.step === 1 
                         || this.state.step === 2 
                         ? <StyledMain>
-                        <h1>Registration Types & Fees</h1>
+                        <FontAwesomeIcon id="idIcon"icon={faIdCard} />
+                                <h1>Registration Types & Fees</h1>
                         </StyledMain> 
                         : null  
                         
                     }
                     
                     {this.showStep()}
+                    <StyledButtons>
+
+                    <hr id="my-hr" />
                     <div className="nextPrev">
+
                             <Button 
                             color="secondary" 
                             onClick={this.previous}
+                            hidden={
+                                this.state.step === 1 && "hidden"
+                            }
                             >
                             Previous
                             </Button>{' '}
-                            <Button color="success" onClick={this.next} disabled={this.state.step > 3}>Next Step</Button>{' '}
+
+                            <Button 
+                            id="next-button" 
+                            color="success" 
+                            onClick={this.next} 
+                            disabled={this.state.step > 3}>
+                            Next Step
+                            <FontAwesomeIcon id="arrowRight" icon={faArrowAltCircleRight} />
+                            </Button>{' '}
+                            
                     </div> 
+                    </StyledButtons>
                 </div> 
             
         );

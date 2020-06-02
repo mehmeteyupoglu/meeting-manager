@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 import { Formik } from "formik"
+import { StyledInput } from "./styles"
 
 
 
@@ -27,30 +28,32 @@ const Step2 = () => {
         isSubmitting,
       }) => (
         <Form onSubmit={handleSubmit}>
-            <FormGroup>
-                <Label for="firstName">First Name</Label>
-                <Input 
-                type="firstName" 
-                name="firstName" 
-                id="firstName" 
-                placeholder="First Name" 
-                onChange={handleChange}
-                value={values.firstName}    
-                />
+            <StyledInput>
+                <FormGroup className="names" >
+                    <Label for="firstName">First Name</Label>
+                    <Input 
+                    type="firstName" 
+                    name="firstName" 
+                    id="firstName" 
+                    placeholder="First Name" 
+                    onChange={handleChange}
+                    value={values.firstName}    
+                    />
 
-            </FormGroup>
-            <FormGroup>
-                <Label for="lastName">Last Name</Label>
-                <Input 
-                type="lastName" 
-                name="lastName" 
-                id="lastName" 
-                placeholder="Last Name" 
-                onChange={handleChange}
-                value={values.lastName}    
-                />
+                </FormGroup>
+                <FormGroup className="names">
+                    <Label  for="lastName">Last Name</Label>
+                    <Input 
+                    type="lastName" 
+                    name="lastName" 
+                    id="lastName" 
+                    placeholder="Last Name" 
+                    onChange={handleChange}
+                    value={values.lastName}    
+                    />
 
-            </FormGroup>
+                </FormGroup>
+            </StyledInput>
             <FormGroup>
                 <Label for="exampleEmail">Email</Label>
                 <Input 

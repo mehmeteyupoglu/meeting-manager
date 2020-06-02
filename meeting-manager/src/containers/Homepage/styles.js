@@ -22,16 +22,12 @@ Button {
 .total-amount {
     display: flex;  
     flex-direction: column; 
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;   
     #checkout {
         font-weight: 700; 
         color: #ff7500; 
     }
-
-    p:nth-of-type(1) {
-        margin-left: 10px;   
-      }
     
 }
 

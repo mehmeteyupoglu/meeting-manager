@@ -24,6 +24,7 @@ const Homepage = () => {
                         <p id="checkout">000.00 $</p>
                     </div>
                 </div> 
+                <hr />
             </div>
         </StyledHome>
     );

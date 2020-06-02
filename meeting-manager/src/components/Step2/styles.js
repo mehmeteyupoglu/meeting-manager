@@ -8,7 +8,7 @@ export const StyledInput = Styled.div`
 }
 
 input[type=text] {
-    width: 300px; 
+    width: 350px; 
 }
 
 

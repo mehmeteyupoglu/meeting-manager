@@ -2,7 +2,13 @@ import React from 'react';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 import { Formik } from "formik"
 import { StyledInput } from "./styles"
+import * as yup from 'yup';
 
+let validationSchema = yup.object().shape({
+  firstName: yup.string().required('Name is required'),
+  lastName: yup.string().required('Last name is required'),
+  email: yup.string().email('Enter a valid email'),
+});
 
 
 const Step2 = () => {
@@ -14,6 +20,8 @@ const Step2 = () => {
             lastName: "", 
             email: ""
         }}
+
+        validationSchema={validationSchema}
         onSubmit={(values) => {
             console.log(values)
         }}
@@ -30,8 +38,6 @@ const Step2 = () => {
         <Form onSubmit={handleSubmit}>
             <StyledInput>
                 <div className="names">
-
-                
                 <FormGroup  >
                     <Label for="firstName">First Name</Label>
                     <Input 

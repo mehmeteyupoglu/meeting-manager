@@ -22,11 +22,16 @@ h1 {
 
 
 export const StyledButtons = Styled.div`
-margin-top: 300px;
+    
+    display: flex; 
+    flex-wrap: wrap; 
+    position: fixed;
+    bottom: 10px;
+    width: 730px; 
+
 hr {
     border-top: 2px solid #28a745;
 }
-
 
 .nextPrev {
     display: flex; 
@@ -38,8 +43,6 @@ Button {
     font-size: 12px; 
     font-weight: bold;
     padding: 8px 2px; 
-    
-
 }
 
 #next-button {

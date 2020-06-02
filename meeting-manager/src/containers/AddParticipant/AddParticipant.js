@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Step1, Step2, Step3} from "../../components"
 import { Button } from "reactstrap"
+import { Link } from "react-router-dom"
 import {StyledMain, StyledButtons} from "./styles"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faIdCard, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
@@ -93,9 +94,8 @@ class AddParticipant extends Component {
                             <Button 
                             color="secondary" 
                             onClick={this.previous}
-                            hidden={
-                                this.state.step === 1 && "hidden"
-                            }
+                            tag={Link}
+                            to="/"
                             >
                             Previous
                             </Button>{' '}
@@ -104,7 +104,9 @@ class AddParticipant extends Component {
                             id="next-button" 
                             color="success" 
                             onClick={this.next} 
-                            disabled={this.state.step > 3}>
+                            disabled={this.state.step > 3}
+                            
+                            >
                             Next Step
                             <FontAwesomeIcon id="arrowRight" icon={faArrowAltCircleRight} />
                             </Button>{' '}

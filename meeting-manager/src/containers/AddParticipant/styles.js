@@ -22,9 +22,6 @@ h1 {
 
 
 export const StyledButtons = Styled.div`
-    
-    display: flex; 
-    flex-wrap: wrap; 
     position: fixed;
     bottom: 10px;
     width: 730px; 

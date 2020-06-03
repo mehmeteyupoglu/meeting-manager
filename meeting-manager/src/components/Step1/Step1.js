@@ -4,10 +4,12 @@ import { StyledAlert } from "./styles.js"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
+
 const Step1 = (props) => {
+
+    console.log(props)
+    const {radio, changeRadio, studentAmount, regularAmount} = props.props
     
-    const {radio, changeRadio, studentAmount, regularAmount} = props
-    console.log(`Step 1 Props: ${props}`)
     return (
         <div>
                 <StyledAlert>
@@ -56,5 +58,6 @@ const Step1 = (props) => {
         </div>
     );
 }
+
 
 export default Step1;

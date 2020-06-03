@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux"
 import {Step1, Step2, Step3} from "../../components"
 import { Button } from "reactstrap"
 import { Link } from "react-router-dom"
 import {StyledMain, StyledButtons} from "./styles"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faIdCard, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
+import { next, previous, changeRadio } from "../../state/ducks/registration/actions"
+
 class AddParticipant extends Component {
     constructor(props) {
         super(props)
@@ -43,32 +46,18 @@ class AddParticipant extends Component {
     }
 
     showStep = () => {
-        const {step, studentAmount, regularAmount, radio, numberOfWorkshops, workshop} = this.state
-        const {changeRadio, next, previous, addWorkshop} = this
+        const {step, numberOfWorkshops, workshop} = this.props.registration[0]
+        const { addWorkshop } = this.props.registration[0]
         
         if (step === 1) {
-            return (<Step1 
-                step={step} 
-                changeRadio={changeRadio}
-                next={next}
-                previous={previous}
-                studentAmount={studentAmount}
-                regularAmount={regularAmount}
-                radio={radio}         
-        />)
+            return <Step1 props={this.props.registration[0]}/>
         }
-
         else if (step === 2) {
-            return (<Step2     
-        />)
+            return <Step2 />
         }
 
         else if (step === 3) {
-            return (<Step3
-                numberOfWorkshops={numberOfWorkshops}
-                workshop={workshop}
-                addWorkshop={addWorkshop}
-        />)
+            return <Step3 props={this.props.registration[0]}/>
         }
     }
 
@@ -81,19 +70,21 @@ class AddParticipant extends Component {
     }
 
     render() {
-        const {step} = this.state
+        const {step} = this.props.registration[0]
         const {next, previous, showStep} = this
+        
         return ( 
             
                 <div>
                     {     
                         step === 1 
-                        || step === 2 
-                        ? <StyledMain>
-                        <FontAwesomeIcon id="idIcon"icon={faIdCard} />
+                        || step === 2 ? 
+                        <StyledMain>
+                            <FontAwesomeIcon id="idIcon" icon={faIdCard} />
                                 <h1>Registration Types & Fees</h1>
                         </StyledMain> 
-                        : null     
+                        : 
+                        null     
                     }
                     
                     {showStep()}
@@ -127,6 +118,18 @@ class AddParticipant extends Component {
     }
 }
 
-export default AddParticipant;
+const mapStateToProps = (state) => {
+    return {
+        registration: state.reducers.registration
+    }
+}
+
+const mapDispatchToProps = {
+    next, 
+    previous, 
+    changeRadio
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddParticipant);
 
 

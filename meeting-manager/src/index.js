@@ -7,11 +7,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import './App.css';
 import {BrowserRouter} from "react-router-dom"; 
 import { Provider } from "react-redux"
+import store from "./state/store"
 
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Provider>
+      <Provider store={store}>
         <App />
       </Provider>
     </BrowserRouter>

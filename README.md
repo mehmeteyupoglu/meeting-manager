@@ -1,1 +1,1 @@
-# meeting-manager
+# OPEN THE FOLDER TO DISCOVER WHAT IS INSIDE

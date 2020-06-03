@@ -5,8 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
 const Step1 = (props) => {
-    const {radio} = props
-    const {changeRadio} = props
+    const {radio, changeRadio} = props
     return (
         <div>
                 <StyledAlert>
@@ -49,12 +48,9 @@ const Step1 = (props) => {
                                 </button>
                             </div>
                             
-
                         </Label>
                         </FormGroup>
-                    </StyledAlert>
-                    
-                     
+                    </StyledAlert>      
         </div>
     );
 }

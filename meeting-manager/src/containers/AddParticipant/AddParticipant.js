@@ -5,7 +5,6 @@ import { Link } from "react-router-dom"
 import {StyledMain, StyledButtons} from "./styles"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faIdCard, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
-
 class AddParticipant extends Component {
     constructor(props) {
         super(props)
@@ -62,59 +61,50 @@ class AddParticipant extends Component {
         }
 
     }
-    
-    componentDidUpdate() {
-        console.log(this.state.step)
-        console.log(this.state.radio)
-    }
 
     render() {
-        
+        const {step} = this.state
+        const {next, previous, showStep} = this
         return ( 
             
                 <div>
-                    {
-                        
-                        this.state.step === 1 
-                        || this.state.step === 2 
+                    {     
+                        step === 1 
+                        || step === 2 
                         ? <StyledMain>
                         <FontAwesomeIcon id="idIcon"icon={faIdCard} />
                                 <h1>Registration Types & Fees</h1>
                         </StyledMain> 
-                        : null  
-                        
+                        : null     
                     }
                     
-                    {this.showStep()}
+                    {showStep()}
                     <StyledButtons>
 
-                    <hr id="my-hr" />
-                    <div className="nextPrev">
+                        <hr id="my-hr" />
+                        <div className="nextPrev">
+                                <Button 
+                                color="secondary" 
+                                onClick={previous}
+                                tag={Link}
+                                to="/"
+                                >
+                                Previous
+                                </Button>{' '}
 
-                            <Button 
-                            color="secondary" 
-                            onClick={this.previous}
-                            tag={Link}
-                            to="/"
-                            >
-                            Previous
-                            </Button>{' '}
-
-                            <Button 
-                            id="next-button" 
-                            color="success" 
-                            onClick={this.next} 
-                            disabled={this.state.step > 3}
-                            
-                            >
-                            Next Step
-                            <FontAwesomeIcon id="arrowRight" icon={faArrowAltCircleRight} />
-                            </Button>{' '}
-                            
-                    </div> 
+                                <Button 
+                                id="next-button" 
+                                color="success" 
+                                onClick={next} 
+                                disabled={step > 3}
+                                >
+                                Next Step
+                                <FontAwesomeIcon id="arrowRight" icon={faArrowAltCircleRight} />
+                                </Button>{' '}
+                                
+                        </div> 
                     </StyledButtons>
-                </div> 
-            
+                </div>  
         );
     }
 }

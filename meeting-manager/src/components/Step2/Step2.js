@@ -10,7 +10,6 @@ let validationSchema = yup.object().shape({
   email: yup.string().email('Enter a valid email'),
 });
 
-
 const Step2 = () => {
     return (
         <div>
@@ -38,44 +37,41 @@ const Step2 = () => {
         <Form onSubmit={handleSubmit}>
             <StyledInput>
                 <div className="names">
-                <FormGroup  >
-                    <Label for="firstName">First Name</Label>
-                    <Input 
-                    type="text" 
-                    name="firstName" 
-                    id="firstName" 
-                    placeholder="" 
-                    onChange={handleChange}
-                    value={values.firstName}    
-                    />
-
-                </FormGroup>
-                <FormGroup >
-                    <Label  for="lastName">Last Name</Label>
-                    <Input 
-                    type="text" 
-                    name="lastName" 
-                    id="lastName" 
-                    placeholder=""
-                    onChange={handleChange}
-                    value={values.lastName}    
-                    />
-
-                </FormGroup>
+                    <FormGroup  >
+                        <Label for="firstName">First Name</Label>
+                        <Input 
+                        type="text" 
+                        name="firstName" 
+                        id="firstName" 
+                        placeholder="" 
+                        onChange={handleChange}
+                        value={values.firstName}    
+                        />
+                    </FormGroup>
+                    <FormGroup >
+                        <Label  for="lastName">Last Name</Label>
+                        <Input 
+                        type="text" 
+                        name="lastName" 
+                        id="lastName" 
+                        placeholder=""
+                        onChange={handleChange}
+                        value={values.lastName}    
+                        />
+                    </FormGroup>
                 </div>
             </StyledInput>
-            <FormGroup>
-                <Label for="exampleEmail">Email</Label>
-                <Input 
-                type="email" 
-                name="email" 
-                id="exampleEmail" 
-                placeholder="" 
-                onChange={handleChange}
-                value={values.email}    
-                />
-
-            </FormGroup>
+                <FormGroup>
+                    <Label for="exampleEmail">Email</Label>
+                    <Input 
+                    type="email" 
+                    name="email" 
+                    id="exampleEmail" 
+                    placeholder="" 
+                    onChange={handleChange}
+                    value={values.email}    
+                    />
+                </FormGroup>
         </Form>
       )}       
         </Formik>

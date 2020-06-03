@@ -11,7 +11,10 @@ class AddParticipant extends Component {
     
         this.state = {
             step: 1, 
-            radio: null, 
+            radio: true, 
+            studentAmount: 30, 
+            regularAmount: 45, 
+            workshop: "", 
         }
     }
 
@@ -39,14 +42,17 @@ class AddParticipant extends Component {
     }
 
     showStep = () => {
-        const {step} = this.state
+        const {step, studentAmount, regularAmount, radio} = this.state
         const {changeRadio, next, previous} = this
         if (step === 1) {
             return (<Step1 
             step={step} 
             changeRadio={changeRadio}
             next={next}
-            previous={previous}    
+            previous={previous}
+            studentAmount={studentAmount}
+            regularAmount={regularAmount}
+            radio={radio}    
         />)
         }
 
@@ -59,7 +65,6 @@ class AddParticipant extends Component {
             return (<Step3     
         />)
         }
-
     }
 
     render() {
@@ -84,21 +89,21 @@ class AddParticipant extends Component {
                         <hr id="my-hr" />
                         <div className="nextPrev">
                                 <Button 
-                                color="secondary" 
-                                onClick={previous}
-                                tag={Link}
-                                to="/"
-                                >
-                                Previous
+                                    color="secondary" 
+                                    onClick={previous}
+                                    tag={Link}
+                                    to="/"
+                                    >
+                                    Previous
                                 </Button>{' '}
 
                                 <Button 
-                                id="next-button" 
-                                color="success" 
-                                onClick={next} 
-                                disabled={step > 3}
-                                >
-                                Next Step
+                                    id="next-button" 
+                                    color="success" 
+                                    onClick={next} 
+                                    disabled={step > 3}
+                                    >
+                                    Next Step
                                 <FontAwesomeIcon id="arrowRight" icon={faArrowAltCircleRight} />
                                 </Button>{' '}
                                 

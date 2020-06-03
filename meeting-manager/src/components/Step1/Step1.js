@@ -5,7 +5,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
 const Step1 = (props) => {
-    const {radio, changeRadio} = props
+    
+    const {radio, changeRadio, studentAmount, regularAmount} = props
+    console.log(radio)
     return (
         <div>
                 <StyledAlert>
@@ -20,7 +22,7 @@ const Step1 = (props) => {
                             Student
                             
                             <div className="right-side">
-                                <p>$ 35.00</p>
+                                <p>$ {studentAmount}.00</p>
                                 <button>
                                     <FontAwesomeIcon icon={faEdit} />
                                 </button>
@@ -42,7 +44,7 @@ const Step1 = (props) => {
                             Regular
                             
                             <div className="right-side">
-                                <p>$ 35.00</p>
+                                <p>$ {regularAmount}.00</p>
                                 <button>
                                         <FontAwesomeIcon icon={faEdit} />
                                 </button>

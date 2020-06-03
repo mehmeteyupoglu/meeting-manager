@@ -14,7 +14,8 @@ class AddParticipant extends Component {
             radio: true, 
             studentAmount: 30, 
             regularAmount: 45, 
-            workshop: "", 
+            workshop: 50,
+            numberOfWorkshops: 0, 
         }
     }
 
@@ -42,17 +43,18 @@ class AddParticipant extends Component {
     }
 
     showStep = () => {
-        const {step, studentAmount, regularAmount, radio} = this.state
-        const {changeRadio, next, previous} = this
+        const {step, studentAmount, regularAmount, radio, numberOfWorkshops, workshop} = this.state
+        const {changeRadio, next, previous, addWorkshop} = this
+        
         if (step === 1) {
             return (<Step1 
-            step={step} 
-            changeRadio={changeRadio}
-            next={next}
-            previous={previous}
-            studentAmount={studentAmount}
-            regularAmount={regularAmount}
-            radio={radio}    
+                step={step} 
+                changeRadio={changeRadio}
+                next={next}
+                previous={previous}
+                studentAmount={studentAmount}
+                regularAmount={regularAmount}
+                radio={radio}         
         />)
         }
 
@@ -62,9 +64,20 @@ class AddParticipant extends Component {
         }
 
         else if (step === 3) {
-            return (<Step3     
+            return (<Step3
+                numberOfWorkshops={numberOfWorkshops}
+                workshop={workshop}
+                addWorkshop={addWorkshop}
         />)
         }
+    }
+
+    addWorkshop = () => {
+        const {numberOfWorkshops} = this.state
+
+        this.setState({
+            numberOfWorkshops: numberOfWorkshops + 1
+        })
     }
 
     render() {
@@ -104,7 +117,7 @@ class AddParticipant extends Component {
                                     disabled={step > 3}
                                     >
                                     Next Step
-                                <FontAwesomeIcon id="arrowRight" icon={faArrowAltCircleRight} />
+                                    <FontAwesomeIcon id="arrowRight" icon={faArrowAltCircleRight} />
                                 </Button>{' '}
                                 
                         </div> 

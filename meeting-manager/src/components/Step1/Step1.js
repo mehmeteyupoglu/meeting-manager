@@ -7,7 +7,7 @@ import { faEdit } from '@fortawesome/free-solid-svg-icons'
 const Step1 = (props) => {
     
     const {radio, changeRadio, studentAmount, regularAmount} = props
-    console.log(radio)
+    console.log(`Step 1 Props: ${props}`)
     return (
         <div>
                 <StyledAlert>

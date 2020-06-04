@@ -38,26 +38,26 @@ class AddParticipant extends Component {
         })
     }
 
-    changeRadio = (e) => {
-        const {value} = e.target
-        this.setState({
-            radio : value
-        })
-    }
+    // changeRadio = (e) => {
+    //     const {value} = e.target
+    //     this.setState({
+    //         radio : value
+    //     })
+    // }
 
     showStep = () => {
-        const {step, numberOfWorkshops, workshop} = this.props.registration[0]
-        const { addWorkshop } = this.props.registration[0]
+        const {step, numberOfWorkshops, workshop} = this.props.registration
+        const { addWorkshop } = this.props.registration
         
         if (step === 1) {
-            return <Step1 props={this.props.registration[0]}/>
+            return <Step1 />
         }
         else if (step === 2) {
             return <Step2 />
         }
 
         else if (step === 3) {
-            return <Step3 props={this.props.registration[0]}/>
+            return <Step3 />
         }
     }
 
@@ -70,8 +70,9 @@ class AddParticipant extends Component {
     }
 
     render() {
-        const {step} = this.props.registration[0]
-        const {next, previous, showStep} = this
+        const {step} = this.props.registration
+        const {next, previous} = this.props
+        const {showStep} = this
         
         return ( 
             
@@ -109,8 +110,7 @@ class AddParticipant extends Component {
                                     >
                                     Next Step
                                     <FontAwesomeIcon id="arrowRight" icon={faArrowAltCircleRight} />
-                                </Button>{' '}
-                                
+                                </Button>{' '}       
                         </div> 
                     </StyledButtons>
                 </div>  

@@ -1,16 +1,14 @@
 import * as Actions from "./types"
 
-export const next = values => {
+export const next = () => {
     return {
-        type: Actions.NEXT, 
-        payload: values
+        type: Actions.NEXT
     }
 }
 
-export const previous = values => {
+export const previous = () => {
     return {
-        type: Actions.PREVIOUS, 
-        payload: values
+        type: Actions.PREVIOUS
     }
 }
 
@@ -21,3 +19,8 @@ export const changeRadio = value => {
     }
 }
 
+export const addWorkshop = () => {
+    return {
+        type: Actions.ADD_WORKSHOP, 
+    }
+}

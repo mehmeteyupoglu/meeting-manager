@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {StyledWorkshop} from "./styles.js"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTools } from '@fortawesome/free-solid-svg-icons'
+import { connect } from "react-redux"
+import { addWorkshop } from "../../state/ducks/registration/actions"
 
 class Step3 extends Component {
     constructor(props) {
@@ -11,10 +13,15 @@ class Step3 extends Component {
              
         }
     }
+
+    componentDidMount() {
+        console.log(this.props)
+    }
     
     render() {
-        const {workshop, numberOfWorkshops, addWorkshop} = this.props
-        console.log(this.props)
+        
+        const { workshop, numberOfWorkshops } = this.props.registration
+        const { addWorkshop } = this.props
         return (
             <StyledWorkshop>
                 <div>
@@ -29,8 +36,8 @@ class Step3 extends Component {
                             <p> {
                                 numberOfWorkshops > 0 && ({numberOfWorkshops}) 
                             }
-                            $ {workshop}.00</p>
-                            <button onClick={addWorkshop}><p>+</p></button>
+                            $ {workshop*numberOfWorkshops}.00</p>
+                            <button id="addWorkshop" onClick={addWorkshop}>+</button>
                         </div>
                     </div>
                 </div>
@@ -39,5 +46,14 @@ class Step3 extends Component {
     }
 }
 
-export default Step3;
+const mapStateToProps = (state) => {
+    return {
+        registration: state.reducers.registration
+    }
+}
+
+const mapDispatchToProps = {
+    addWorkshop
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Step3);
 

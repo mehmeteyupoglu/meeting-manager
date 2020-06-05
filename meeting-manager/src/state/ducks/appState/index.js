@@ -1,2 +1,2 @@
-import reducer from "./reducers"
-export default reducer
+import appReducer from "./reducers"
+export default appReducer

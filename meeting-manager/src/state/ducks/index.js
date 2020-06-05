@@ -1,1 +1,4 @@
-export {default as reducers} from "./appState"
+import appReducer from "./appState" 
+import registration from "./registration"
+
+export {appReducer, registration}

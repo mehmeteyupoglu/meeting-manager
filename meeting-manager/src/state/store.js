@@ -1,7 +1,7 @@
-import * as reducers from "./ducks"
+import {appReducer, registration} from "./ducks"
 import { combineReducers, compose, createStore } from "redux"
 
-const rootReducer = combineReducers(reducers)
+const rootReducer = combineReducers({appReducer, registration})
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

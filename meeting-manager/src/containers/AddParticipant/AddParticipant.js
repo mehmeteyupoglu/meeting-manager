@@ -6,7 +6,7 @@ import { Link } from "react-router-dom"
 import {StyledMain, StyledButtons} from "./styles"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faIdCard, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
-import { next, previous, changeRadio } from "../../state/ducks/registration/actions"
+import { next, previous, changeRadio } from "../../state/ducks/appState/actions"
 
 class AddParticipant extends Component {
     constructor(props) {
@@ -22,32 +22,9 @@ class AddParticipant extends Component {
         }
     }
 
-    next = () => {
-        const {step, radio} = this.state
-        radio && 
-        this.setState({
-            step: step + 1
-        })
-    }
-
-    previous = () => {
-        const {step} = this.state
-        step > 1 &&
-        this.setState({
-            step: step - 1
-        })
-    }
-
-    // changeRadio = (e) => {
-    //     const {value} = e.target
-    //     this.setState({
-    //         radio : value
-    //     })
-    // }
-
     showStep = () => {
-        const {step, numberOfWorkshops, workshop} = this.props.registration
-        const { addWorkshop } = this.props.registration
+        const {step, numberOfWorkshops, workshop} = this.props.appState
+        const { addWorkshop } = this.props.appState
         
         if (step === 1) {
             return <Step1 />
@@ -70,12 +47,11 @@ class AddParticipant extends Component {
     }
 
     render() {
-        const {step} = this.props.registration
+        const {step} = this.props.appState
         const {next, previous} = this.props
         const {showStep} = this
         
         return ( 
-            
                 <div>
                     {     
                         step === 1 
@@ -90,7 +66,6 @@ class AddParticipant extends Component {
                     
                     {showStep()}
                     <StyledButtons>
-
                         <hr id="my-hr" />
                         <div className="nextPrev">
                                 <Button 
@@ -107,6 +82,9 @@ class AddParticipant extends Component {
                                     color="success" 
                                     onClick={next} 
                                     disabled={step > 3}
+                                    type={
+                                        step === 2 && "submit"
+                                    }
                                     >
                                     Next Step
                                     <FontAwesomeIcon id="arrowRight" icon={faArrowAltCircleRight} />
@@ -120,7 +98,7 @@ class AddParticipant extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        registration: state.reducers.registration
+        appState: state.reducers.appState
     }
 }
 

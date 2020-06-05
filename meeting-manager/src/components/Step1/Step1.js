@@ -4,12 +4,12 @@ import { connect } from "react-redux"
 import { StyledAlert } from "./styles.js"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
-import { changeRadio } from "../../state/ducks/registration/actions"
+import { changeRadio } from "../../state/ducks/appState/actions"
 
 
 const Step1 = (props) => {
 
-    const { radio, studentAmount, regularAmount} = props.registration
+    const { radio, studentAmount, regularAmount} = props.appState
     const { changeRadio } = props
     
     return (
@@ -18,7 +18,7 @@ const Step1 = (props) => {
                         <FormGroup check>
                             <Label >
                                 <Input type="checkbox" 
-                                name="student" 
+                                name="student"
                                 value="student" 
                                 onClick={(e) => {
                                     changeRadio(e.target.value)
@@ -65,7 +65,7 @@ const Step1 = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        registration: state.reducers.registration
+        appState: state.reducers.appState
     }
 }
 const mapDispatchToProps = {

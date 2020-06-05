@@ -1,1 +1,1 @@
-export {default as reducers} from "./registration"
+export {default as reducers} from "./appState"

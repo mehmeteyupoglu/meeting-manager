@@ -1,28 +1,29 @@
 import React from 'react';
-import { Form, FormGroup, Label, Input } from 'reactstrap';
-import { Formik } from "formik"
-import { StyledInput } from "./styles"
-import * as yup from 'yup';
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Formik } from "formik";
+import { StyledInput } from "./styles"; 
+import * as Yup from "yup";
 
-let validationSchema = yup.object().shape({
-  firstName: yup.string().required('Name is required'),
-  lastName: yup.string().required('Last name is required'),
-  email: yup.string().email('Enter a valid email'),
+let validationSchema = Yup.object().shape({
+  firstName: Yup.string().required('Name is required'),
+  lastName: Yup.string().required('Last name is required'),
+  email: Yup.string().email('Enter a valid email'),
 });
 
-const Step2 = () => {
+let initialValues = {
+    firstName: "", 
+    lastName: "", 
+    email: ""
+}
+
+const Step2 = (props) => {
     return (
         <div>
         <Formik
-        initialValues={{
-            firstName: "", 
-            lastName: "", 
-            email: ""
-        }}
-
-        validationSchema={validationSchema}
-        onSubmit={(values) => {
-            console.log(values)
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={(values) => {
+            console.log(values);
         }}
         >
         {({
@@ -72,6 +73,7 @@ const Step2 = () => {
                     value={values.email}    
                     />
                 </FormGroup>
+                <Button type="submit">Add</Button>
         </Form>
       )}       
         </Formik>

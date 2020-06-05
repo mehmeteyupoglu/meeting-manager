@@ -3,7 +3,7 @@ import {StyledWorkshop} from "./styles.js"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTools } from '@fortawesome/free-solid-svg-icons'
 import { connect } from "react-redux"
-import { addWorkshop } from "../../state/ducks/registration/actions"
+import { addWorkshop } from "../../state/ducks/applicationState/actions"
 
 class Step3 extends Component {
     constructor(props) {

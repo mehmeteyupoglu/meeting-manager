@@ -52,7 +52,7 @@ const Step1 = (props) => {
                                 
                                 <div className="right-side">
                                     <p>$ {regularAmount}.00</p>
-                                    <button>
+                                    <button type="submit">
                                         <FontAwesomeIcon icon={faEdit} />
                                     </button>
                                 </div>
@@ -65,7 +65,7 @@ const Step1 = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        appState: state.reducers.appState
+        appState: state.appReducer.appState
     }
 }
 const mapDispatchToProps = {

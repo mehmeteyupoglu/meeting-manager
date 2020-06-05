@@ -1,7 +1,6 @@
 import * as Actions from "./types"
 
 const initialState = {
-
     registration : []
 }
 
@@ -10,7 +9,7 @@ const registrationReducer = (state=initialState, action) => {
         case Actions.REGISTER: 
             return {
                 ...state, 
-                registration: [action.payload]
+                registration: [...state.registration, action.payload]
             }
         default: 
             return state

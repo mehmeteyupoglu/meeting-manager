@@ -98,7 +98,7 @@ class AddParticipant extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        appState: state.reducers.appState
+        appState: state.appReducer.appState
     }
 }
 

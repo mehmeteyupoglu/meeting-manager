@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import { StyledHome } from "./styles"
 
-const Homepage = () => {
+const Homepage = (props) => {
     return (
 
         <StyledHome>

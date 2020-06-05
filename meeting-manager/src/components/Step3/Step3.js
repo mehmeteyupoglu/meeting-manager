@@ -37,7 +37,7 @@ class Step3 extends Component {
                                 numberOfWorkshops > 0 && ({numberOfWorkshops}) 
                             }
                             $ {workshop*numberOfWorkshops}.00</p>
-                            <button id="addWorkshop" onClick={addWorkshop}>+</button>
+                            <button id="addWorkshop" >+</button>
                         </div>
                     </div>
                 </div>
@@ -48,7 +48,7 @@ class Step3 extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        appState: state.reducers.appState
+        appState: state.appReducer.appState
     }
 }
 

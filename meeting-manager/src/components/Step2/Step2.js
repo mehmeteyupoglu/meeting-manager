@@ -3,6 +3,8 @@ import { Form, FormGroup, Label, Input, Button, FormFeedback } from 'reactstrap'
 import { Formik } from "formik";
 import { StyledInput } from "./styles"; 
 import * as Yup from "yup";
+import { connect } from "react-redux"
+import { register } from "../../state/ducks/registration/actions"
 
 let validationSchema = Yup.object().shape({
   firstName: Yup.string().required('Name is required'),
@@ -23,7 +25,7 @@ const Step2 = (props) => {
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={(values) => {
-            console.log(values);
+                props.register(values)
         }}
         >
         {({
@@ -96,4 +98,8 @@ const Step2 = (props) => {
     );
 }
 
-export default Step2;
+const mapDispatchToProps = {
+    register
+}
+
+export default connect(null, mapDispatchToProps)(Step2);

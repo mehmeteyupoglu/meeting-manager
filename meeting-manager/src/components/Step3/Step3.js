@@ -3,7 +3,7 @@ import {StyledWorkshop} from "./styles.js"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTools } from '@fortawesome/free-solid-svg-icons'
 import { connect } from "react-redux"
-import { addWorkshop } from "../../state/ducks/applicationState/actions"
+import { addWorkshop } from "../../state/ducks/appState/actions"
 
 class Step3 extends Component {
     constructor(props) {
@@ -20,7 +20,7 @@ class Step3 extends Component {
     
     render() {
         
-        const { workshop, numberOfWorkshops } = this.props.registration
+        const { workshop, numberOfWorkshops } = this.props.appState
         const { addWorkshop } = this.props
         return (
             <StyledWorkshop>
@@ -48,7 +48,7 @@ class Step3 extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        registration: state.reducers.registration
+        appState: state.reducers.appState
     }
 }
 

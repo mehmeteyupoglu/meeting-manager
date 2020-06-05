@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button, FormFeedback } from 'reactstrap';
 import { Formik } from "formik";
 import { StyledInput } from "./styles"; 
 import * as Yup from "yup";
@@ -46,8 +46,13 @@ const Step2 = (props) => {
                         id="firstName" 
                         placeholder="" 
                         onChange={handleChange}
-                        value={values.firstName}    
+                        value={values.firstName}   
+                        invalid={errors.firstName} 
                         />
+                        {
+                        errors.firstName && <FormFeedback>{errors.firstName}</FormFeedback>
+                        }
+                    
                     </FormGroup>
                     <FormGroup >
                         <Label  for="lastName">Last Name</Label>
@@ -57,8 +62,13 @@ const Step2 = (props) => {
                         id="lastName" 
                         placeholder=""
                         onChange={handleChange}
-                        value={values.lastName}    
+                        value={values.lastName} 
+                        invalid={errors.lastName}    
                         />
+                        {
+                            errors.lastName && <FormFeedback>{errors.lastName}</FormFeedback>
+                        }
+                        
                     </FormGroup>
                 </div>
             </StyledInput>
@@ -70,8 +80,12 @@ const Step2 = (props) => {
                     id="exampleEmail" 
                     placeholder="" 
                     onChange={handleChange}
-                    value={values.email}    
+                    value={values.email} 
+                    invalid={errors.email}   
                     />
+                    {
+                        errors.email && <FormFeedback>{errors.email}</FormFeedback>
+                    }
                 </FormGroup>
                 <Button type="submit">Add</Button>
         </Form>

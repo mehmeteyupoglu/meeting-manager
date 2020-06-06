@@ -6,7 +6,7 @@ import {StyledDetails} from "./styles"
 
 const Details = (props) => {
     console.log(props)
-    const { workshop } = props.appState
+    const { workshop, radio, studentAmount, regularAmount  } = props.appState
     const { firstName, lastName} = props.registration
     return (
         <StyledDetails>
@@ -33,7 +33,11 @@ const Details = (props) => {
                         {
                             props.registration.map(item => {
                                 return(
-                                    <p id="firstName">AMOUNT</p>
+                                    <h3 id="firstName">${
+                                        radio === "student" ? studentAmount 
+                                        : regularAmount
+                                    }.00
+                                    </h3>
                                     )
                             })
                         }

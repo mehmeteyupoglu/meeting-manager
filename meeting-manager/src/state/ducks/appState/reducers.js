@@ -8,7 +8,7 @@ const initialState = {
         studentAmount: 30, 
         regularAmount: 45, 
         workshop: 50,
-        numberOfWorkshops: 0,  
+        wNum: 0,  
     }
 }
 
@@ -32,7 +32,7 @@ const appReducer = (state=initialState, action) => {
         case Actions.ADD_WORKSHOP: 
             return {
                 ...state, 
-                appState: { ...state.appState, numberOfWorkshops: state.appState.numberOfWorkshops + 1}
+                appState: {...state.appState, wNum: state.appState.wNum + 1}
             }
         default: 
             return state

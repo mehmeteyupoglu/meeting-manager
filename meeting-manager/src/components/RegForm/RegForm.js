@@ -1,27 +1,32 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input, Button, FormFeedback } from 'reactstrap';
 import { Formik } from "formik";
-import { StyledInput } from "./styles"; 
+import { StyledInput, StyledButtons } from "./styles"; 
 import * as Yup from "yup";
 import { connect } from "react-redux"
 import { register } from "../../state/ducks/registration/actions"
+import {Link} from "react-router-dom"
+import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 let validationSchema = Yup.object().shape({
-  firstName: Yup.string().required('Name is required'),
-  lastName: Yup.string().required('Last name is required'),
-  email: Yup.string().email('Enter a valid email'),
-});
-
+    firstName: Yup.string().required('Name is required'),
+    lastName: Yup.string().required('Last name is required'),
+    email: Yup.string().email('Enter a valid email'),
+  });
+  
 let initialValues = {
     firstName: "", 
     lastName: "", 
     email: ""
-}
+  }
 
-const Step2 = (props) => {
+
+const RegForm = (props) => {
     return (
         <div>
-        <Formik
+           <Formik
             initialValues={initialValues}
             validationSchema={validationSchema}
             onSubmit={(values) => {
@@ -91,9 +96,31 @@ const Step2 = (props) => {
                 </FormGroup>
                 <Button type="submit">Add</Button>
         </Form>
-      )}       
+      )}                 
         </Formik>
-            
+                    <StyledButtons>
+                        <hr id="my-hr" />
+                        <div className="nextPrev">
+                                <Button 
+                                    color="secondary" 
+                                    tag={Link}
+                                    to="/step-1"
+                                    >
+                                    Previous
+                                </Button>{' '}
+                                
+                                    <Button 
+                                        id="next-button" 
+                                        color="success"
+                                        tag={Link}
+                                        to="/step-3" 
+                                        type="submit" 
+                                        >
+                                        Next Step
+                                        <FontAwesomeIcon id="arrowRight" icon={faArrowAltCircleRight} />
+                                    </Button>{' '}        
+                        </div> 
+                    </StyledButtons> 
         </div>
     );
 }
@@ -101,5 +128,4 @@ const Step2 = (props) => {
 const mapDispatchToProps = {
     register
 }
-
-export default connect(null, mapDispatchToProps)(Step2);
+export default connect(null, mapDispatchToProps) (RegForm);

@@ -1,25 +1,18 @@
 import Styled from "styled-components"
+export const StyledInput = Styled.div`
 
-export const StyledMain = Styled.div`
-
-color: #5ea2f7; 
-margin: 40px 0 30px; 
-display: flex; 
-align-items: stretch; 
- 
-
-h1 {
-    font-size: 20px;
-    font-weight: 800; 
-    margin-left: 10px;  
+.names {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-#idIcon {
-    font-size: 25px; 
-    
+input[type=text] {
+    width: 350px; 
 }
+
+
 `
-
 
 export const StyledButtons = Styled.div`
     position: fixed;

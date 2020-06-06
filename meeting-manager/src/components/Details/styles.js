@@ -28,6 +28,16 @@ border: 1px solid rgb(177, 172, 172);
         font-size: 20px; 
         font-weight: 800; 
     }
+    #firstName {
+        font-weight: 700; 
+        color: #ff7500;  
+    }
+
+       
+    #checkout {
+        font-weight: 700; 
+        color: #ff7500; 
+    }
     
 }
 

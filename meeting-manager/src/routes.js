@@ -1,5 +1,5 @@
-import {Homepage, AddParticipant} from "./containers"
-import { Step1, Step2, Step3 } from "./components"
+import {Homepage, AddParticipant, Step1, Step2, Step3} from "./containers"
+import {  } from "./components"
 
 const routes = [
     {
@@ -16,20 +16,20 @@ const routes = [
     },
     {
         title: "Step 1", 
-        path: "/add-participant/step-1", 
-        exact: true, 
+        path: "/step-1", 
+        exact: false, 
         component: Step1
     }, 
     {
         title: "Step 2", 
-        path: "/add-participant/step-2", 
-        exact: true, 
+        path: "/step-2", 
+        exact: false, 
         component: Step2 
     },
     {
         title: "Step 3", 
-        path: "/add-participant/step-3", 
-        exact: true, 
+        path: "/step-3", 
+        exact: false, 
         component: Step3 
     }
     

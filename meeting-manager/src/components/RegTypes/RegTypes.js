@@ -1,20 +1,21 @@
 import React from 'react';
-import { FormGroup, Label, Input } from 'reactstrap';
+import { FormGroup, Label, Input, Button } from 'reactstrap';
 import { connect } from "react-redux"
-import { StyledAlert } from "./styles.js"
+import { StyledAlert, StyledButtons } from "./styles.js"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
-import { changeRadio } from "../../state/ducks/appState/actions"
+import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
+import { previous, changeRadio } from "../../state/ducks/appState/actions"
+import {Link} from "react-router-dom"
 
+const RegTypes = (props) => {
 
-const Step1 = (props) => {
-
-    const { radio, studentAmount, regularAmount} = props.appState
+    const { radio, studentAmount, regularAmount, step} = props.appState
     const { changeRadio } = props
-    
+
     return (
         <div>
-                <StyledAlert>
+           <StyledAlert>
                         <FormGroup check>
                             <Label >
                                 <Input type="checkbox" 
@@ -58,7 +59,31 @@ const Step1 = (props) => {
                                 </div>
                             </Label>
                         </FormGroup>
-                    </StyledAlert>      
+                    </StyledAlert>   
+                    <StyledButtons>
+                        <hr id="my-hr" />
+                        <div className="nextPrev">
+                                <Button 
+                                    color="secondary" 
+                                    onClick={previous}
+                                    tag={Link}
+                                    to="/"
+                                    >
+                                    Previous
+                                </Button>{' '}
+                                
+                                    <Button 
+                                        id="next-button" 
+                                        color="success"
+                                        tag={Link}
+                                        to="/step-2"  
+                                        >
+                                        Next Step
+                                        <FontAwesomeIcon id="arrowRight" icon={faArrowAltCircleRight} />
+                                    </Button>{' '}
+                                       
+                        </div> 
+                    </StyledButtons>  
         </div>
     );
 }
@@ -71,4 +96,5 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     changeRadio
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Step1);
+
+export default connect(mapStateToProps, mapDispatchToProps) (RegTypes);

@@ -9,18 +9,7 @@ import { faIdCard, faArrowAltCircleRight } from '@fortawesome/free-solid-svg-ico
 import { next, previous, changeRadio } from "../../state/ducks/appState/actions"
 
 class AddParticipant extends Component {
-    constructor(props) {
-        super(props)
-    
-        this.state = {
-            step: 1, 
-            radio: true, 
-            studentAmount: 30, 
-            regularAmount: 45, 
-            workshop: 50,
-            numberOfWorkshops: 0, 
-        }
-    }
+  
 
     showStep = () => {
         const {step, numberOfWorkshops, workshop} = this.props.appState
@@ -36,14 +25,6 @@ class AddParticipant extends Component {
         else if (step === 3) {
             return <Step3 />
         }
-    }
-
-    addWorkshop = () => {
-        const {numberOfWorkshops} = this.state
-
-        this.setState({
-            numberOfWorkshops: numberOfWorkshops + 1
-        })
     }
 
     render() {

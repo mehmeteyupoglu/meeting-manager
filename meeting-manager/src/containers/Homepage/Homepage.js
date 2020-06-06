@@ -5,15 +5,19 @@ import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
 import { StyledHome } from "./styles"
+import { connect } from "react-redux"
 
 const Homepage = (props) => {
+    
     return (
-
         <StyledHome>
             <div>
                 <h1>Registration Page</h1>
-                <Details />
-
+                {
+                    props.registration.map(item => {
+                        return (<Details />) 
+                    })
+                }
                 <div className="amount-button">
                     <Button color="secondary" tag={Link} to="/add-participant">
                         <FontAwesomeIcon icon={faUserPlus} />
@@ -30,4 +34,11 @@ const Homepage = (props) => {
     );
 }
 
-export default Homepage;
+const mapStateToProps = (state) => {
+    return {
+        appState: state.appReducer.appState, 
+        registration: state.registration.registration
+    }
+}
+
+export default connect(mapStateToProps)(Homepage);

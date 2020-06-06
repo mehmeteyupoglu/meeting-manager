@@ -12,8 +12,7 @@ class AddParticipant extends Component {
   
 
     showStep = () => {
-        const {step, numberOfWorkshops, workshop} = this.props.appState
-        const { addWorkshop } = this.props.appState
+        const {step} = this.props.appState
         
         if (step === 1) {
             return <Step1 />

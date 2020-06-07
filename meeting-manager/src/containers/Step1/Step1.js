@@ -1,14 +1,14 @@
 import React from 'react';
-import {RegTypes} from "../../components"
+import {RegTypes, RegType} from "../../components"
+
 
 
 const Step1 = (props) => {
     
     return (
         <div>
-                <h1>Step1</h1>
-                <RegTypes />
-                  
+            <RegType />
+            <RegTypes />
         </div>
     );
 }

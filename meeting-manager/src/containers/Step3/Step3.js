@@ -1,15 +1,27 @@
-import React from 'react';
-import {Workshop} from "../../components"
+import React, { Component } from 'react';
+import {Workshop, WorkshopNot} from "../../components"
 
-const Step3 = () => {
-    return (
-        <div>
-            <Workshop />
-        </div>
-    );
+
+class Step3 extends Component {
+    constructor(props) {
+        super(props)
+    
+        this.state = {
+             
+        }
+    }
+    
+    render() {
+        return (
+            <div>
+                <Workshop />
+            </div>
+        );
+    }
 }
 
 export default Step3;
+
 
 
 

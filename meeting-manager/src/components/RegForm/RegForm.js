@@ -94,11 +94,8 @@ const RegForm = (props) => {
                         errors.email && <FormFeedback>{errors.email}</FormFeedback>
                     }
                 </FormGroup>
-                <Button type="submit">Add</Button>
-        </Form>
-      )}                 
-        </Formik>
-                    <StyledButtons>
+
+                <StyledButtons>
                         <hr id="my-hr" />
                         <div className="nextPrev">
                                 <Button 
@@ -114,13 +111,20 @@ const RegForm = (props) => {
                                         color="success"
                                         tag={Link}
                                         to="/step-3" 
-                                        type="submit" 
+                                        type="submit"
+                                        onClick={() => props.register(values)} 
                                         >
                                         Next Step
                                         <FontAwesomeIcon id="arrowRight" icon={faArrowAltCircleRight} />
                                     </Button>{' '}        
                         </div> 
-                    </StyledButtons> 
+                    </StyledButtons>
+        </Form>
+                    
+      )} 
+                                     
+        </Formik>
+                    
         </div>
     );
 }

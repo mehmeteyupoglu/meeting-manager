@@ -50,10 +50,17 @@ h2 {
             border: 1px; 
             border-radius: 2px; 
             p {
-                color: green; 
+                color: #28a745; 
             }
         }
     }
+
+    &:hover #addWorkshop{
+        background-color: #28a745; 
+        p {
+            color: white; 
+        }
+      }
     
 }
 

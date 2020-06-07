@@ -17,7 +17,7 @@ input[type=text] {
 export const StyledButtons = Styled.div`
     position: fixed;
     bottom: 10px;
-    width: 730px; 
+    width: 740px; 
 
 hr {
     border-top: 2px solid #28a745;
@@ -32,18 +32,21 @@ hr {
 Button {
     font-size: 12px; 
     font-weight: bold;
-    padding: 8px 2px; 
+    padding: 8px 1px; 
 }
 
 #next-button {
     width: 130px; 
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center; 
     
- 
 }
 
-#arrowRight {
-    font-size: 15px;
-    margin-left: 30px;
-}
+// #arrowRight {
+//     font-size: 15px;
+//     margin-left: 30px;
+// }
 
 `

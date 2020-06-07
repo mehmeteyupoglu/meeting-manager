@@ -9,7 +9,9 @@ import { Link } from "react-router-dom"
 import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
 
 const Workshop = (props) => {
-    const { workshop, wNum } = props.appState
+    console.log(props.appState)
+    const { wNum } = props.appState
+    const { event_workshop_price } = props.appState.workshops[0]
     const { addWorkshop } = props
 
     return (
@@ -25,11 +27,11 @@ const Workshop = (props) => {
                         <hr />
                         <div>
                             <p>{
-                                wNum > 0 && `(${wNum})`
+                                wNum > 0 && `(${wNum}) X `
                             }</p>
                             <p> 
-                            $ {workshop*wNum}.00</p>
-                            <button id="addWorkshop" onClick={addWorkshop}>+</button>
+                            $ {event_workshop_price*wNum}.00</p>
+                            <button id="addWorkshop" onClick={addWorkshop}><p>+</p></button>
                         </div>
                     </div>
                 </div>

@@ -7,8 +7,7 @@ export const StyledAlert = Styled(Alert)`
     border: 2.5px solid #5ea2f7;
     color: #5ea2f7;
     height: 60px; 
-     
-
+    
     Label {
         display: flex; 
         justify-content: space-between;
@@ -35,9 +34,9 @@ export const StyledAlert = Styled(Alert)`
 `
 
 export const StyledButtons = Styled.div`
-    position: fixed;
-    bottom: 10px;
-    width: 730px; 
+position: fixed;
+bottom: 10px;
+width: 730px; 
 
 hr {
     border-top: 2px solid #28a745;
@@ -57,13 +56,10 @@ Button {
 
 #next-button {
     width: 130px; 
-    
- 
-}
-
-#arrowRight {
-    font-size: 15px;
-    margin-left: 30px;
+    display: flex; 
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center;  
 }
 
 `

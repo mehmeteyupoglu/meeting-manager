@@ -1,10 +1,10 @@
 import React from 'react';
-import {RegForm} from "../../components"
+import {RegForm, RegType} from "../../components"
 
 const Step2 = () => {
     return (
         <div>
-            <h1>Step2</h1>
+            <RegType />
             <RegForm />
         </div>
     );

@@ -10,12 +10,12 @@ import {Link} from "react-router-dom"
 
 const RegTypes = (props) => {
 
-    const { radio, studentAmount, regularAmount, step} = props.appState
+    const { radio, step, registration_types} = props.appState
     const { changeRadio } = props
 
     return (
         <div>
-           <StyledAlert>
+           <StyledAlert> 
                         <FormGroup check>
                             <Label >
                                 <Input type="checkbox" 
@@ -29,7 +29,7 @@ const RegTypes = (props) => {
                                 Student
                                 
                                 <div className="right-side">
-                                    <p>$ {studentAmount}.00</p>
+                                    <p>$ {registration_types[0].event_registration_type_price}.00</p>
                                     <button>
                                         <FontAwesomeIcon icon={faEdit} />
                                     </button>
@@ -52,7 +52,7 @@ const RegTypes = (props) => {
                                 Regular
                                 
                                 <div className="right-side">
-                                    <p>$ {regularAmount}.00</p>
+                                    <p>$ {registration_types[1].event_registration_type_price}.00</p>
                                     <button type="submit">
                                         <FontAwesomeIcon icon={faEdit} />
                                     </button>
@@ -76,12 +76,12 @@ const RegTypes = (props) => {
                                         id="next-button" 
                                         color="success"
                                         tag={Link}
-                                        to="/step-2"  
+                                        to="/step-2"
+                                        type="submit"  
                                         >
                                         Next Step
                                         <FontAwesomeIcon id="arrowRight" icon={faArrowAltCircleRight} />
-                                    </Button>{' '}
-                                       
+                                    </Button>{' '}            
                         </div> 
                     </StyledButtons>  
         </div>

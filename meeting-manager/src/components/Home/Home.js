@@ -1,5 +1,5 @@
 import React from 'react';
-import  Details  from "../Details"
+import  {Details}  from "../Details"
 import { Button } from "reactstrap"
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -8,6 +8,8 @@ import { StyledHome } from "./styles"
 import { connect } from "react-redux"
 
 const Home = (props) => {
+    const {wNum} = props.appState
+    const {studentAmount} = props.registration
     return (
         <div>
            <StyledHome>
@@ -26,7 +28,7 @@ const Home = (props) => {
                         </Button>
                         <div className="total-amount">
                             <p>TOTAL</p>
-                            <p id="checkout">000.00 $</p>
+                            <p id="checkout">${studentAmount}.00 </p>
                         </div>
                     </div> 
                     <hr />

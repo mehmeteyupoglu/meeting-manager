@@ -27,10 +27,11 @@ const RegForm = (props) => {
     return (
         <div>
            <Formik
-            initialValues={initialValues}
-            validationSchema={validationSchema}
-            onSubmit={(values) => {
-                props.register(values)
+                initialValues={initialValues}
+                validationSchema={validationSchema}
+                onSubmit={(values) => {
+                    console.log(values)
+                    props.register(values)
         }}
         >
         {({
@@ -121,11 +122,9 @@ const RegForm = (props) => {
                     </StyledButtons>
         </Form>
                     
-      )} 
-                                     
-        </Formik>
-                    
-        </div>
+      )}                            
+        </Formik>           
+    </div>
     );
 }
 

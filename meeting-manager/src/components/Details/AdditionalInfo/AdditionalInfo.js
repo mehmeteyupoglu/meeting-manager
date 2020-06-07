@@ -1,10 +1,20 @@
 import React from 'react';
-
+import { StyledDetails } from "./styles"
 const AdditionalInfo = () => {
     return (
         <div>
-            <h3>Additional Information</h3>
-            <hr />
+            <StyledDetails>
+                <h3>Additional Information</h3>
+                <hr />
+                <div className="attendees">
+                        <div className="names">
+                            hello    
+                        </div>
+                        <div>
+                            world
+                        </div>           
+                    </div>
+            </StyledDetails>
         </div>
     );
 }

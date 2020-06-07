@@ -9,14 +9,14 @@ export const StyledDetails = Styled.div`
 }
 
 .attendees {
+    font-size: 15px;  
+    display: flex;  
+    justify-content: space-between;
+
     div{
         display: flex; 
         flex-direction: column; 
     }
-
-    font-size: 15px;  
-    display: flex;  
-    justify-content: space-between;
 
     h3 {
         font-size: 20px; 
@@ -31,8 +31,10 @@ export const StyledDetails = Styled.div`
     #checkout {
         font-weight: 700; 
         color: #ff7500; 
-    }
-    
+    }   
+.names {
+    display: flex; 
+    flex-direction: column; 
+} 
 }
-
 `

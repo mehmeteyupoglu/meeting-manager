@@ -9,7 +9,7 @@ import { Link } from "react-router-dom"
 import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
 
 const Workshop = (props) => {
-    console.log(props.appState)
+    
     const { wNum } = props.appState
     const { event_workshop_price } = props.appState.workshops[0]
     const { addWorkshop } = props

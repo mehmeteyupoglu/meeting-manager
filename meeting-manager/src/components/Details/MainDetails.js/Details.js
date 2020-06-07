@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyledDetails} from "./styles"
+import { StyledDetails } from "./styles"
 import TotalDetails from "../TotalDetails"
 import AdditionalInfo from "../AdditionalInfo"
 import RegistrationDetails from "../RegistrationDetails"

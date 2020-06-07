@@ -36,7 +36,7 @@ export const StyledAlert = Styled(Alert)`
 export const StyledButtons = Styled.div`
 position: fixed;
 bottom: 10px;
-width: 730px; 
+width: 730px;
 
 hr {
     border-top: 2px solid #28a745;
@@ -45,7 +45,8 @@ hr {
 .nextPrev {
     display: flex; 
     flex-direction: row; 
-    justify-content: space-between; 
+    justify-content: space-between;
+    flex-wrap: wrap;  
 }
 
 Button {

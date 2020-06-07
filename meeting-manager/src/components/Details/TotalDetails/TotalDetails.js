@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from "react-redux"
-import {StyledDetails} from "./styles"
+import { StyledDetails } from "./styles"
 
 function TotalDetails(props) {
     const { workshop, radio, registration_types  } = props.appState

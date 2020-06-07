@@ -15,12 +15,10 @@ const Home = (props) => {
            <StyledHome>
                 <div>
                     <h1>Registration Page</h1>
-                    
                     {
-                        props.registration.map(item => {
-                            return (<Details />) 
-                        })
+                        props.registration.length > 0 && <Details/> 
                     }
+
                     <div className="amount-button">
                         <Button color="secondary" tag={Link} to="/step-1">
                             <FontAwesomeIcon icon={faUserPlus} />

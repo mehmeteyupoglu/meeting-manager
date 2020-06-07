@@ -1,21 +1,43 @@
 import React from 'react';
-import { FormGroup, Label, Input, Button } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
 import { connect } from "react-redux"
-import { StyledAlert, StyledButtons } from "./styles.js"
+import { Formik } from "formik"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
-import { previous, changeRadio } from "../../state/ducks/appState/actions"
-import {Link} from "react-router-dom"
+import { changeRadio } from "../../state/ducks/appState/actions"
+import { Link } from "react-router-dom"
+import { StyledAlert, StyledButtons } from "./styles.js"
+
+let initialValues = {
+    name: "", 
+}
 
 const RegTypes = (props) => {
 
-    const { radio, step, registration_types} = props.appState
+    const { radio, registration_types} = props.appState
     const { changeRadio } = props
 
     return (
         <div>
-           <StyledAlert> 
+            <Formik 
+                initialValues={initialValues}
+                onSubmit={(values) => {
+                    console.log(`Values for step1 ===>  ${values}`)
+            }} 
+            validator={() => ({})}           
+            >
+        {({
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit,
+        isSubmitting,
+      }) => (
+                <Form onSubmit={handleSubmit}>
+                    <StyledAlert> 
                         <FormGroup check>
                             <Label >
                                 <Input type="checkbox" 
@@ -36,9 +58,8 @@ const RegTypes = (props) => {
                                 </div>
                             </Label>
                         </FormGroup>
-                        </StyledAlert>
-                        <StyledAlert>
-                    
+                    </StyledAlert>
+                    <StyledAlert>
                         <FormGroup check>
                             <Label >
                                 <Input type="checkbox" 
@@ -65,7 +86,6 @@ const RegTypes = (props) => {
                         <div className="nextPrev">
                                 <Button 
                                     color="secondary" 
-                                    onClick={previous}
                                     tag={Link}
                                     to="/"
                                     >
@@ -77,14 +97,18 @@ const RegTypes = (props) => {
                                         color="success"
                                         tag={Link}
                                         to="/step-2"
-                                        type="submit"  
+                                        type="submit"
                                         >
                                         Next Step
                                         <FontAwesomeIcon id="arrowRight" icon={faArrowAltCircleRight} />
                                     </Button>{' '}            
                         </div> 
-                    </StyledButtons>  
-        </div>
+                    </StyledButtons> 
+                </Form>
+      )}
+                     
+        </Formik>
+    </div>
     );
 }
 

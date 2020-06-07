@@ -1,5 +1,5 @@
 {
-  "homepage": "http://mehmeteyupoglu.github.io/meeting-manager",
+  "homepage": "http://mehmeteyupoglu.github.io/meeting-manager", 
   "name": "meeting-manager",
   "version": "0.1.0",
   "private": true,
@@ -11,7 +11,6 @@
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "bootstrap": "^4.5.0",
-    "formik": "^2.1.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
@@ -25,7 +24,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d build", 
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

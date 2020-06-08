@@ -1,6 +1,10 @@
 import React from 'react';
 import { StyledDetails } from "./styles"
-const AdditionalInfo = () => {
+import { connect } from "react-redux"
+
+const AdditionalInfo = (props) => {
+    const { event_registration_firstname, event_registration_lastname } = props.registration[0]
+    const { event_workshop_title, event_workshop_price } = props.appState.workshops[0]
     return (
         <div>
             <StyledDetails>
@@ -8,10 +12,14 @@ const AdditionalInfo = () => {
                 <hr />
                 <div className="attendees">
                         <div className="names">
-                            hello    
+                            {
+                                event_workshop_title
+                            }   
                         </div>
                         <div>
-                            world
+                            {
+                                `$${event_workshop_price}.00`
+                            }
                         </div>           
                     </div>
             </StyledDetails>
@@ -19,4 +27,11 @@ const AdditionalInfo = () => {
     );
 }
 
-export default AdditionalInfo;
+const mapStateToProps = (state) => {
+    return {
+        appState: state.appReducer.appState, 
+        registration: state.registration.registration
+    }
+}
+
+export default connect(mapStateToProps)(AdditionalInfo);

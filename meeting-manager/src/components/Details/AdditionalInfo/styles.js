@@ -5,7 +5,7 @@ export const StyledDetails = Styled.div`
 margin: 50px 0 50px; 
 
 h3 {
-    font-size: 20px; 
+    font-size: 16px; 
     font-weight: 800; 
     margin: 0
 } 

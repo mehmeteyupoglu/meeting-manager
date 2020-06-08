@@ -3,16 +3,15 @@ import { StyledWorkshop, StyledButtons } from "./styles.js"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTools } from '@fortawesome/free-solid-svg-icons'
 import { connect } from "react-redux"
-import { addWorkshop } from "../../state/ducks/appState/actions"
+import { register, addWorkshop } from "../../state/ducks/registration/actions"
 import { Button } from "reactstrap"
 import { Link } from "react-router-dom"
 import { faArrowAltCircleRight } from '@fortawesome/free-solid-svg-icons'
 
 const Workshop = (props) => {
-    
-    const { wNum } = props.appState
-    const { event_workshop_price } = props.appState.workshops[0]
-    const { addWorkshop } = props
+    console.log(props)
+    const { wNum, workshops } = props.appState
+    const { addWorkshop, register } = props
 
     return (
         <div>
@@ -30,8 +29,8 @@ const Workshop = (props) => {
                                 wNum > 0 && `(${wNum}) X `
                             }</p>
                             <p> 
-                            $ {event_workshop_price*wNum}.00</p>
-                            <button id="addWorkshop" onClick={addWorkshop}><p>+</p></button>
+                            $ {workshops[0].event_workshop_price*wNum}.00</p>
+                            <button id="addWorkshop" onClick={() => {addWorkshop(workshops)}}><p>+</p></button>
                         </div>
                     </div>
                 </div>
@@ -65,12 +64,13 @@ const Workshop = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        appState: state.appReducer.appState
+        appState: state.appReducer.appState, 
+        registration: state.registration.registration
     }
 }
 
 const mapDispatchToProps = {
-    addWorkshop
+    addWorkshop, register
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (Workshop);

@@ -1,3 +1,4 @@
 const REGISTER = "REGISTER"; 
+const ADD_WORKSHOP = "ADD_WORKSHOP"
 
-export { REGISTER }
+export { REGISTER, ADD_WORKSHOP }

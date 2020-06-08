@@ -7,8 +7,6 @@ const RegistrationDetails = (props) => {
     const { event_registration_firstname, event_registration_lastname } = props.registration[0]
     const { event_workshop_price } = props.appState.workshops[0]
     const { workshop, radio, registration_types  } = props.appState
-    const firstName = props.registration[0].event_registration_firstname
-    const lastName = props.registration[0].event_registration_lastname
     return (
         <div>
             <StyledDetails>

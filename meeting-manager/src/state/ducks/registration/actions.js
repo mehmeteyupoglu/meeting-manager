@@ -6,3 +6,10 @@ export const register = (values) => {
         payload: values
     }
 }
+
+export const addWorkshop = (values) => {
+    return {
+        type: Actions.ADD_WORKSHOP, 
+        payload: values
+    }
+}

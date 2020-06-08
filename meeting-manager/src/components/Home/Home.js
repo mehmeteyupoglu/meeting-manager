@@ -8,8 +8,13 @@ import { StyledHome } from "./styles"
 import { connect } from "react-redux"
 
 const Home = (props) => {
-    const {wNum} = props.appState
-    const {studentAmount} = props.registration
+    
+    const { event_workshop_price } = props.appState.workshops[0]
+    const { workshop, radio, registration_types  } = props.appState
+    const price = radio === "student" ? registration_types[0].event_registration_type_price  
+    : registration_types[1].event_registration_type_price + event_workshop_price
+    
+
     return (
         <div>
            <StyledHome>
@@ -26,7 +31,12 @@ const Home = (props) => {
                         </Button>
                         <div className="total-amount">
                             <p>TOTAL</p>
-                            <p id="checkout">${studentAmount}.00 </p>
+                            <p id="checkout">
+
+                            {
+                                props.registration.length > 0 ?  `$${event_workshop_price + price}.00` : `$ 0.00`
+                            }
+                            </p>
                         </div>
                     </div> 
                     <hr />

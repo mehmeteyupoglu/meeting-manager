@@ -19,8 +19,3 @@ export const changeRadio = value => {
     }
 }
 
-export const addWorkshop = () => {
-    return {
-        type: Actions.ADD_WORKSHOP, 
-    }
-}
